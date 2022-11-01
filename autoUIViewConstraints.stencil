@@ -1,5 +1,4 @@
-{% for type in types.classes%}
-{% if "UIView" in type.inheritedTypes %}
+{% for type in types.implementing.autoUIViewConstraints%}
 extension {{type.name}} {
     func setConstraint() {
     {% for var in type.variables %}
@@ -23,6 +22,5 @@ extension {{type.name}} {
 
     {% endfor %}
 }
-{% endif %}
 {% endfor %}
 
