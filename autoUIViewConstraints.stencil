@@ -1,4 +1,5 @@
-{% for type in types.implementing.autoUIViewConstraints%}
+{% for type in types.implementing.autoUIViewConstraints %}
+/* {{ type.name }}Frame:
 extension {{type.name}} {
     func setConstraint() {
     {% for var in type.variables %}
@@ -7,7 +8,7 @@ extension {{type.name}} {
     }
 
     {% for var in type.variables %}
-    func {{ var.name }}Constraints(){
+    func {{ var.name }}Constraints() {
         NSLayoutConstraint.activate([
             {{ var.name }}.topAnchor.constraint(equalTo: topAnchor),
             {{ var.name }}.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -22,5 +23,6 @@ extension {{type.name}} {
 
     {% endfor %}
 }
+*/
 {% endfor %}
 
